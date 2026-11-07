@@ -19,9 +19,9 @@
 }
 
 body{
-    background:#edf2f7;
+    background:#eef2f7;
     color:#222;
-    padding-bottom:80px;
+    padding-bottom:30px;
 }
 
 header{
@@ -51,129 +51,170 @@ h1{
 }
 
 .container{
-    max-width:700px;
+    max-width:750px;
     margin:auto;
     padding:15px;
 }
 
-.card-equipa{
+.card{
     border-radius:25px;
-    color:white;
-    padding:25px;
     margin-bottom:20px;
-    box-shadow:0 10px 25px rgba(0,0,0,.15);
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,.12);
 }
 
-.card-a{
+.card-header{
+    padding:20px;
+    text-align:center;
+    color:white;
+}
+
+.a{
     background:linear-gradient(135deg,#0057B8,#003B7A);
 }
 
-.card-b{
+.b{
     background:linear-gradient(135deg,#FFD100,#F4B400);
     color:#003B7A;
 }
 
-.titulo-equipa{
-    text-align:center;
+.equipa{
     font-size:28px;
     font-weight:bold;
 }
 
 .posicao{
-    text-align:center;
     margin-top:10px;
 }
 
-.posicao-numero{
-    font-size:80px;
+.posicao .numero{
+    font-size:90px;
     font-weight:bold;
     line-height:1;
 }
 
-.posicao-texto{
+.posicao .texto{
     font-size:18px;
     letter-spacing:4px;
 }
 
-.proximo-jogo{
-    background:rgba(255,255,255,.15);
-    backdrop-filter:blur(6px);
-    border-radius:20px;
+.card-body{
+    background:white;
     padding:20px;
-    margin-top:20px;
-    text-align:center;
 }
 
-.proximo-jogo h3{
+.proximo{
+    background:#FFF9D6;
+    padding:18px;
+    border-radius:18px;
+    text-align:center;
     margin-bottom:15px;
 }
 
-.equipas{
-    font-size:22px;
+.proximo h3{
+    margin-bottom:15px;
+    color:#003B7A;
+}
+
+.jogo{
+    font-size:24px;
     font-weight:bold;
     line-height:1.5;
 }
 
 .hora{
-    margin-top:15px;
     font-size:32px;
+    color:#0057B8;
+    margin-top:10px;
     font-weight:bold;
 }
 
-.countdown{
-    margin-top:15px;
-    background:rgba(0,0,0,.15);
-    padding:15px;
-    border-radius:15px;
+.contagem{
     text-align:center;
+    background:#EDF6FF;
+    padding:15px;
+    border-radius:18px;
+    margin-bottom:15px;
 }
 
-.countdown strong{
+.contagem strong{
     font-size:26px;
 }
 
-.stats{
-    margin-top:20px;
-    background:white;
-    color:#222;
+.resultado{
+    background:#28A745;
+    color:white;
+    padding:15px;
     border-radius:18px;
-    padding:20px;
+    text-align:center;
+    margin-bottom:15px;
+}
+
+.resultado h3{
+    margin-bottom:8px;
+}
+
+.resultado-texto{
+    font-size:20px;
+    font-weight:bold;
+}
+
+.stats{
+    background:#f8f8f8;
+    padding:15px;
+    border-radius:18px;
+    margin-bottom:15px;
 }
 
 .stats h3{
-    margin-bottom:15px;
+    margin-bottom:10px;
     color:#0057B8;
 }
 
-.stat{
+.linha{
+    display:flex;
+    justify-content:space-between;
+    padding:7px 0;
+    border-bottom:1px solid #e4e4e4;
+}
+
+.top5{
+    background:#f8f8f8;
+    padding:15px;
+    border-radius:18px;
+    margin-bottom:15px;
+}
+
+.top5 h3{
+    margin-bottom:12px;
+}
+
+.top-item{
     display:flex;
     justify-content:space-between;
     padding:8px 0;
-    border-bottom:1px solid #ececec;
+    border-bottom:1px solid #e4e4e4;
 }
 
-.ultimo{
-    margin-top:20px;
-    background:#25a244;
-    color:white;
-    border-radius:18px;
+.proximos{
+    background:#f8f8f8;
     padding:15px;
-    text-align:center;
+    border-radius:18px;
 }
 
-.resultado{
-    font-size:20px;
-    font-weight:bold;
-    margin-top:10px;
+.proximos h3{
+    margin-bottom:12px;
 }
 
-.botoes{
-    margin-top:15px;
+.proximo-item{
+    padding:10px;
+    background:white;
+    border-radius:12px;
+    margin-top:8px;
 }
 
 .btn{
     display:block;
-    width:100%;
     text-align:center;
     text-decoration:none;
     color:white;
@@ -184,68 +225,10 @@ h1{
     font-weight:bold;
 }
 
-.btn-maps{
-    background:#ff6b00;
-}
-
-.btn-whatsapp{
-    background:#25D366;
-}
-
-.seccao{
-    background:white;
-    border-radius:20px;
-    padding:20px;
-    margin-bottom:20px;
-    box-shadow:0 4px 15px rgba(0,0,0,.08);
-}
-
-.seccao h2{
-    margin-bottom:15px;
-    color:#0057B8;
-}
-
-.lista-jogos{
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-}
-
-.jogo-item{
-    background:#f7f7f7;
-    border-radius:12px;
-    padding:12px;
-}
-
-.top-item{
-    display:flex;
-    justify-content:space-between;
-    padding:10px 0;
-    border-bottom:1px solid #eee;
-}
-
-.nav-bottom{
-    position:fixed;
-    bottom:0;
-    left:0;
-    width:100%;
-    background:white;
-    display:flex;
-    justify-content:space-around;
-    padding:12px;
-    box-shadow:0 -3px 10px rgba(0,0,0,.10);
-}
-
-.nav-bottom div{
-    text-align:center;
-    font-size:14px;
-    font-weight:bold;
-}
-
 .footer{
     text-align:center;
-    color:#777;
-    margin-top:20px;
+    padding:20px;
+    color:#666;
 }
 
 </style>
@@ -255,217 +238,19 @@ h1{
 
 <header>
 
-<img src="logo.ico" class="logo" alt="Sintrense">
+<img src="logo.ico" class="logo">
 
 <h1>⚽ SINTRENSE SUB-12</h1>
 
 <div class="atualizacao">
-Atualizado:
-<strong id="atualizacao">...</strong>
+Atualizado: <strong id="atualizacao">...</strong>
 </div>
 
 </header>
 
 <div class="container">
 
-<!-- EQUIPA A -->
-
-<div class="card-equipa card-a">
-
-<div class="titulo-equipa">
-🔵 EQUIPA A
-</div>
-
-<div class="posicao">
-<div class="posicao-numero" id="a-posicao">-</div>
-<div class="posicao-texto">LUGAR</div>
-</div>
-
-<div class="proximo-jogo">
-
-<h3>📅 PRÓXIMO JOGO</h3>
-
-<div class="equipas" id="a-proximo">
-A carregar...
-</div>
-
-<div class="hora" id="a-hora">--:--</div>
-
-</div>
-
-<div class="countdown">
-⏳ FALTAM
-<br><br>
-<strong id="countdown-a">--</strong>
-</div>
-
-<div class="stats">
-
-<h3>📊 Estatísticas</h3>
-
-<div class="stat">
-<span>Pontos</span>
-<strong id="a-pontos"></strong>
-</div>
-
-<div class="stat">
-<span>Jogos</span>
-<strong id="a-jogos"></strong>
-</div>
-
-<div class="stat">
-<span>Vitórias</span>
-<strong id="a-vitorias"></strong>
-</div>
-
-<div class="stat">
-<span>Empates</span>
-<strong id="a-empates"></strong>
-</div>
-
-<div class="stat">
-<span>Derrotas</span>
-<strong id="a-derrotas"></strong>
-</div>
-
-<div class="stat">
-<span>⚽ Marcados</span>
-<strong id="a-gm"></strong>
-</div>
-
-<div class="stat">
-<span>🥅 Sofridos</span>
-<strong id="a-gs"></strong>
-</div>
-
-</div>
-
-<div class="ultimo">
-✅ ÚLTIMO RESULTADO
-<div class="resultado" id="a-resultado">
-A carregar...
-</div>
-</div>
-
-<div class="botoes">
-
-<a class="btn"
-href="https://www.zerozero.pt/edicao/af-lisboa-fut7-juniores-d-s12-1-fase-serie-8-2026-2027/226443"
-target="_blank">
-🏆 Ver Série 8 no ZeroZero
-</a>
-
-<a class="btn btn-maps"
-href="#"
-target="_blank">
-📍 Navegação
-</a>
-
-<a class="btn btn-whatsapp"
-href="#"
-target="_blank">
-💬 WhatsApp
-</a>
-
-</div>
-
-</div>
-
-<!-- EQUIPA B -->
-
-<div class="card-equipa card-b">
-
-<div class="titulo-equipa">
-🟡 EQUIPA B
-</div>
-
-<div class="posicao">
-<div class="posicao-numero" id="b-posicao">-</div>
-<div class="posicao-texto">LUGAR</div>
-</div>
-
-<div class="proximo-jogo">
-
-<h3>📅 PRÓXIMO JOGO</h3>
-
-<div class="equipas" id="b-proximo">
-A carregar...
-</div>
-
-<div class="hora" id="b-hora">--:--</div>
-
-</div>
-
-<div class="countdown">
-⏳ FALTAM
-<br><br>
-<strong id="countdown-b">--</strong>
-</div>
-
-<div class="stats">
-
-<h3>📊 Estatísticas</h3>
-
-<div class="stat"><span>Pontos</span><strong id="b-pontos"></strong></div>
-<div class="stat"><span>Jogos</span><strong id="b-jogos"></strong></div>
-<div class="stat"><span>Vitórias</span><strong id="b-vitorias"></strong></div>
-<div class="stat"><span>Empates</span><strong id="b-empates"></strong></div>
-<div class="stat"><span>Derrotas</span><strong id="b-derrotas"></strong></div>
-<div class="stat"><span>⚽ Marcados</span><strong id="b-gm"></strong></div>
-<div class="stat"><span>🥅 Sofridos</span><strong id="b-gs"></strong></div>
-
-</div>
-
-<div class="ultimo">
-✅ ÚLTIMO RESULTADO
-
-<div class="resultado" id="b-resultado">
-A carregar...
-</div>
-
-</div>
-
-<div class="botoes">
-
-<a class="btn"
-href="https://www.zerozero.pt/edicao/af-lisboa-fut7-juniores-d-s12-1-fase-serie-9-2026-2027/226134"
-target="_blank">
-🏆 Ver Série 9 no ZeroZero
-</a>
-
-<a class="btn btn-maps"
-href="#"
-target="_blank">
-📍 Navegação
-</a>
-
-<a class="btn btn-whatsapp"
-href="#"
-target="_blank">
-💬 WhatsApp
-</a>
-
-</div>
-
-</div>
-
-<div class="seccao">
-
-<h2>📅 Próximos Jogos</h2>
-
-<div class="lista-jogos" id="lista-jogos">
-A carregar...
-</div>
-
-</div>
-
-<div class="seccao">
-
-<h2>🏆 Top 5 da Série</h2>
-
-<div id="top5">
-A carregar...
-</div>
+<div id="conteudo"></div>
 
 </div>
 
@@ -473,87 +258,129 @@ A carregar...
 Sport União Sintrense
 </div>
 
-</div>
-
-<div class="nav-bottom">
-<div>🏠<br>Início</div>
-<div>⚽<br>Jogos</div>
-<div>🏆<br>Class.</div>
-<div>ℹ️<br>Info</div>
-</div>
-
 <script>
 
 async function carregarDados(){
 
-    try{
+    const r = await fetch("dados.json");
+    const dados = await r.json();
 
-        const r = await fetch("dados.json");
-        const dados = await r.json();
-
-        document.getElementById("atualizacao").innerText =
+    document.getElementById("atualizacao").innerText =
         dados.ultimaAtualizacao;
 
-        // A
+    criarCard(
+        dados.sintrenseA,
+        "🔵 EQUIPA A",
+        "a",
+        "https://www.zerozero.pt/edicao/af-lisboa-fut7-juniores-d-s12-1-fase-serie-8-2026-2027/226443"
+    );
 
-        document.getElementById("a-posicao").innerText = dados.sintrenseA.posicao;
-        document.getElementById("a-pontos").innerText = dados.sintrenseA.pontos;
-        document.getElementById("a-jogos").innerText = dados.sintrenseA.jogos;
-        document.getElementById("a-vitorias").innerText = dados.sintrenseA.vitorias;
-        document.getElementById("a-empates").innerText = dados.sintrenseA.empates;
-        document.getElementById("a-derrotas").innerText = dados.sintrenseA.derrotas;
-        document.getElementById("a-gm").innerText = dados.sintrenseA.golosMarcados;
-        document.getElementById("a-gs").innerText = dados.sintrenseA.golosSofridos;
+    criarCard(
+        dados.sintrenseB,
+        "🟡 EQUIPA B",
+        "b",
+        "https://www.zerozero.pt/edicao/af-lisboa-fut7-juniores-d-s12-1-fase-serie-9-2026-2027/226134"
+    );
 
-        document.getElementById("a-proximo").innerHTML =
-        dados.sintrenseA.proximoJogo.casa +
-        "<br>VS<br>" +
-        dados.sintrenseA.proximoJogo.fora;
+}
 
-        document.getElementById("a-hora").innerText =
-        dados.sintrenseA.proximoJogo.hora;
+function criarCard(d,nome,classe,zerozero){
 
-        document.getElementById("a-resultado").innerText =
-        dados.sintrenseA.ultimoResultado.casa +
-        " " +
-        dados.sintrenseA.ultimoResultado.resultado +
-        " " +
-        dados.sintrenseA.ultimoResultado.fora;
+let html = `
+<div class="card">
 
-        // B
+<div class="card-header ${classe}">
+<div class="equipa">${nome}</div>
 
-        document.getElementById("b-posicao").innerText = dados.sintrenseB.posicao;
-        document.getElementById("b-pontos").innerText = dados.sintrenseB.pontos;
-        document.getElementById("b-jogos").innerText = dados.sintrenseB.jogos;
-        document.getElementById("b-vitorias").innerText = dados.sintrenseB.vitorias;
-        document.getElementById("b-empates").innerText = dados.sintrenseB.empates;
-        document.getElementById("b-derrotas").innerText = dados.sintrenseB.derrotas;
-        document.getElementById("b-gm").innerText = dados.sintrenseB.golosMarcados;
-        document.getElementById("b-gs").innerText = dados.sintrenseB.golosSofridos;
+<div class="posicao">
+<div class="numero">${d.posicao}</div>
+<div class="texto">LUGAR</div>
+</div>
+</div>
 
-        document.getElementById("b-proximo").innerHTML =
-        dados.sintrenseB.proximoJogo.casa +
-        "<br>VS<br>" +
-        dados.sintrenseB.proximoJogo.fora;
+<div class="card-body">
 
-        document.getElementById("b-hora").innerText =
-        dados.sintrenseB.proximoJogo.hora;
+<div class="proximo">
+<h3>📅 PRÓXIMO JOGO</h3>
 
-        document.getElementById("b-resultado").innerText =
-        dados.sintrenseB.ultimoResultado.casa +
-        " " +
-        dados.sintrenseB.ultimoResultado.resultado +
-        " " +
-        dados.sintrenseB.ultimoResultado.fora;
+<div class="jogo">
+${d.proximoJogo.casa}
+<br>VS<br>
+${d.proximoJogo.fora}
+</div>
 
-    } catch(err){
+<div class="hora">
+${d.proximoJogo.hora}
+</div>
+</div>
 
-        console.error(err);
+<div class="resultado">
+<h3>✅ Último Resultado</h3>
+<div class="resultado-texto">
+${d.ultimoResultado.casa}
+${d.ultimoResultado.resultado}
+${d.ultimoResultado.fora}
+</div>
+</div>
 
-        document.getElementById("atualizacao").innerText =
-        "Erro ao carregar dados";
+<div class="stats">
+<h3>📊 Estatísticas</h3>
 
-    }
+<div class="linha"><span>Pontos</span><strong>${d.pontos}</strong></div>
+<div class="linha"><span>Jogos</span><strong>${d.jogos}</strong></div>
+<div class="linha"><span>Vitórias</span><strong>${d.vitorias}</strong></div>
+<div class="linha"><span>Empates</span><strong>${d.empates}</strong></div>
+<div class="linha"><span>Derrotas</span><strong>${d.derrotas}</strong></div>
+<div class="linha"><span>⚽ Marcados</span><strong>${d.golosMarcados}</strong></div>
+<div class="linha"><span>🥅 Sofridos</span><strong>${d.golosSofridos}</strong></div>
+<div class="linha"><span>➕ Diferença</span><strong>${d.diferenca}</strong></div>
+</div>
+
+<div class="top5">
+<h3>🏆 TOP 5</h3>
+`;
+
+for(let t of d.top5){
+
+html += `
+<div class="top-item">
+<span>${t.posicao}º ${t.equipa}</span>
+<strong>${t.pontos}</strong>
+</div>`;
+}
+
+html += `</div>
+
+<div class="proximos">
+<h3>📅 Próximos Jogos</h3>
+`;
+
+for(let j of d.proximosJogos){
+
+html += `
+<div class="proximo-item">
+<strong>${j.data}</strong><br>
+${j.casa}<br>
+VS<br>
+${j.fora}<br>
+🕒 ${j.hora}
+</div>`;
+}
+
+html += `
+</div>
+
+<a class="btn"
+href="${zerozero}"
+target="_blank">
+🏆 Ver Classificação Completa no ZeroZero
+</a>
+
+</div>
+</div>
+`;
+
+document.getElementById("conteudo").innerHTML += html;
 
 }
 
