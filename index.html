@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sintrense Sub-12</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f5f7fa;
+    color:#222;
+}
+
+header{
+    background:linear-gradient(135deg,#0057b8,#003b7a);
+    color:white;
+    text-align:center;
+    padding:30px 20px;
+    border-bottom:6px solid #ffd100;
+}
+
+.logo{
+    width:100px;
+    margin-bottom:10px;
+}
+
+header h1{
+    font-size:2rem;
+    margin-bottom:5px;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:20px;
+}
+
+.card{
+    background:white;
+    border-radius:15px;
+    margin-bottom:25px;
+    padding:25px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+    border-top:6px solid #ffd100;
+}
+
+.card h2{
+    color:#0057b8;
+    margin-bottom:20px;
+}
+
+.info{
+    font-size:18px;
+    margin-bottom:10px;
+}
+
+.proximo{
+    background:#fff9d6;
+    border-left:6px solid #ffd100;
+    padding:15px;
+    border-radius:10px;
+    margin:15px 0;
+}
+
+.proximo h3{
+    color:#003b7a;
+    margin-bottom:10px;
+}
+
+.resultados h3{
+    color:#003b7a;
+    margin-bottom:10px;
+}
+
+.resultados ul{
+    list-style:none;
+}
+
+.resultados li{
+    padding:10px 0;
+    border-bottom:1px solid #eaeaea;
+}
+
+.links{
+    margin-top:20px;
+}
+
+.btn{
+    display:inline-block;
+    background:#0057b8;
+    color:white;
+    text-decoration:none;
+    padding:12px 18px;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+.btn:hover{
+    background:#003b7a;
+}
+
+.footer{
+    text-align:center;
+    padding:20px;
+    color:#666;
+}
+
+.erro{
+    color:red;
+    text-align:center;
+    margin-top:20px;
+}
+
+@media(max-width:768px){
+
+    .card{
+        padding:20px;
+    }
+
+    .info{
+        font-size:16px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <img src="logo.png" class="logo" alt="Sintrense">
+
+    <h1>⚽ Sintrense Sub-12</h1>
+
+    <p>
+        Última atualização:
+        <strong id="atualizacao">A carregar...</strong>
+    </p>
+
+</header>
+
+<div class="container">
+
+    <!-- EQUIPA A -->
+
+    <div class="card">
+
+        <h2>🔵 Sintrense Sub-12 A</h2>
+
+        <div class="info">
+            🏆 Classificação:
+            <strong id="a-posicao">-</strong>º
+        </div>
+
+        <div class="info">
+            ⭐ Pontos:
+            <strong id="a-pontos">-</strong>
+        </div>
+
+        <div class="info">
+            ⚽ Jogos:
+            <strong id="a-jogos">-</strong>
+        </div>
+
+        <div class="proximo">
+
+            <h3>📅 Próximo Jogo</h3>
+
+            <div id="a-proximo">
+                A carregar...
+            </div>
+
+            <br>
+
+            <strong id="a-hora"></strong>
+
+        </div>
+
+        <div class="resultados">
+
+            <h3>Último Resultado</h3>
+
+            <ul>
+                <li id="a-resultado">
+                    A carregar...
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="links">
+            <a
+                class="btn"
+                href="https://www.zerozero.pt/edicao/af-lisboa-fut7-juniores-d-s12-1-fase-serie-8-2026-2027/226443"
+                target="_blank">
+                Ver Série 8
+            </a>
+        </div>
+
+    </div>
+
+    <!-- EQUIPA B -->
+
+    <div class="card">
+
+        <h2>🟡 Sintrense Sub-12 B</h2>
+
+        <div class="info">
+            🏆 Classificação:
+            <strong id="b-posicao">-</strong>º
+        </div>
+
+        <div class="info">
+            ⭐ Pontos:
+            <strong id="b-pontos">-</strong>
+        </div>
+
+        <div class="info">
+            ⚽ Jogos:
+            <strong id="b-jogos">-</strong>
+        </div>
+
+        <div class="proximo">
+
+            <h3>📅 Próximo Jogo</h3>
+
+            <div id="b-proximo">
+                A carregar...
+            </div>
+
+            <br>
+
+            <strong id="b-hora"></strong>
+
+        </div>
+
+        <div class="resultados">
+
+            <h3>Último Resultado</h3>
+
+            <ul>
+                <li id="b-resultado">
+                    A carregar...
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="links">
+            <a
+                class="btn"
+                href="https://www.zerozero.pt/edicao/af-lisboa-fut7-juniores-d-s12-1-fase-serie-9-2026-2027/226134"
+                target="_blank">
+                Ver Série 9
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    Sport União Sintrense © 2026
+</div>
+
+<script>
+
+async function carregarDados(){
+
+    try{
+
+        const resposta = await fetch('./dados.json');
+
+        const dados = await resposta.json();
+
+        document.getElementById("atualizacao").textContent =
+            dados.ultimaAtualizacao;
+
+        // EQUIPA A
+
+        document.getElementById("a-posicao").textContent =
+            dados.sintrenseA.posicao;
+
+        document.getElementById("a-pontos").textContent =
+            dados.sintrenseA.pontos;
+
+        document.getElementById("a-jogos").textContent =
+            dados.sintrenseA.jogos;
+
+        document.getElementById("a-proximo").textContent =
+            dados.sintrenseA.proximoJogo.casa +
+            " vs " +
+            dados.sintrenseA.proximoJogo.fora;
+
+        document.getElementById("a-hora").textContent =
+            dados.sintrenseA.proximoJogo.hora;
+
+        document.getElementById("a-resultado").textContent =
+            dados.sintrenseA.ultimoResultado.casa +
+            " " +
+            dados.sintrenseA.ultimoResultado.resultado +
+            " " +
+            dados.sintrenseA.ultimoResultado.fora;
+
+        // EQUIPA B
+
+        document.getElementById("b-posicao").textContent =
+            dados.sintrenseB.posicao;
+
+        document.getElementById("b-pontos").textContent =
+            dados.sintrenseB.pontos;
+
+        document.getElementById("b-jogos").textContent =
+            dados.sintrenseB.jogos;
+
+        document.getElementById("b-proximo").textContent =
+            dados.sintrenseB.proximoJogo.casa +
+            " vs " +
+            dados.sintrenseB.proximoJogo.fora;
+
+        document.getElementById("b-hora").textContent =
+            dados.sintrenseB.proximoJogo.hora;
+
+        document.getElementById("b-resultado").textContent =
+            dados.sintrenseB.ultimoResultado.casa +
+            " " +
+            dados.sintrenseB.ultimoResultado.resultado +
+            " " +
+            dados.sintrenseB.ultimoResultado.fora;
+
+    }
+    catch(erro){
+
+        console.error(erro);
+
+        document.getElementById("atualizacao").textContent =
+            "Erro ao carregar dados";
+
+    }
+
+}
+
+carregarDados();
+
+</script>
+
+</body>
+</html>
