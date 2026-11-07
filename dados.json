@@ -1,0 +1,47 @@
+{
+  "ultimaAtualizacao": "07/11/2026 14:38",
+  "sintrenseA": {
+    "posicao": "3",
+    "equipa": "Sintrense",
+    "pontos": "9",
+    "jogos": "4",
+    "vitorias": "3",
+    "empates": "0",
+    "derrotas": "1",
+    "golosMarcados": "32",
+    "golosSofridos": "9",
+    "ultimoResultado": {
+      "casa": "Sintrense",
+      "resultado": "13-1",
+      "fora": "CD Belas"
+    },
+    "proximoJogo": {
+      "casa": "Sintrense",
+      "fora": "Malveira da Serra C",
+      "hora": "09:00",
+      "adversario": "Malveira da Serra C"
+    }
+  },
+  "sintrenseB": {
+    "posicao": "7",
+    "equipa": "Sintrense B",
+    "pontos": "6",
+    "jogos": "3",
+    "vitorias": "2",
+    "empates": "0",
+    "derrotas": "1",
+    "golosMarcados": "17",
+    "golosSofridos": "8",
+    "ultimoResultado": {
+      "casa": "CD Mafra B",
+      "resultado": "0-7",
+      "fora": "Sintrense B"
+    },
+    "proximoJogo": {
+      "casa": "Algés B",
+      "fora": "Sintrense B",
+      "hora": "09:00",
+      "adversario": "Algés B"
+    }
+  }
+}
