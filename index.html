@@ -167,11 +167,17 @@ header h1{
 }
 
 .resultado{
-    background:#28A745;
     color:white;
     border-radius:18px;
     padding:20px;
     text-align:center;
+}
+
+.resultado-estado{
+    font-size:15px;
+    font-weight:bold;
+    letter-spacing:2px;
+    margin-bottom:15px;
 }
 
 .resultado-equipa{
@@ -203,7 +209,7 @@ header h1{
     color:#666;
 }
 
-@media(max-width:500px){
+    @media(max-width:500px){
 
     .posicao{
         font-size:70px;
@@ -220,7 +226,6 @@ header h1{
     .stats{
         grid-template-columns:1fr;
     }
-
 }
 
 </style>
@@ -251,46 +256,80 @@ Sport União Sintrense
 
 async function carregarDados(){
 
-    try{
+    const resposta = await fetch("dados.json");
+    const dados = await resposta.json();
 
-        const resposta = await fetch("dados.json");
-        const dados = await resposta.json();
+    document.getElementById("atualizacao").textContent =
+    dados.ultimaAtualizacao;
 
-        document.getElementById("atualizacao").textContent =
-        dados.ultimaAtualizacao;
+    criarCard(
+        dados.sintrenseA,
+        "EQUIPA A",
+        "card-a",
+        "https://www.zerozero.pt/edicao/af-lisboa-fut7-juniores-d-s12-1-fase-serie-8-2026-2027/226443"
+    );
 
-        criarCard(
-            dados.sintrenseA,
-            "EQUIPA A",
-            "card-a",
-            "https://www.zerozero.pt/edicao/af-lisboa-fut7-juniores-d-s12-1-fase-serie-8-2026-2027/226443"
-        );
-
-        criarCard(
-            dados.sintrenseB,
-            "EQUIPA B",
-            "card-b",
-            "https://www.zerozero.pt/edicao/af-lisboa-fut7-juniores-d-s12-1-fase-serie-9-2026-2027/226134"
-        );
-
-    }
-    catch(erro){
-
-        console.error(erro);
-
-        document.getElementById("conteudo").innerHTML =
-        `
-        <div class="card">
-            <div class="conteudo" style="text-align:center">
-                Erro ao carregar dados.
-            </div>
-        </div>
-        `;
-    }
-
+    criarCard(
+        dados.sintrenseB,
+        "EQUIPA B",
+        "card-b",
+        "https://www.zerozero.pt/edicao/af-lisboa-fut7-juniores-d-s12-1-fase-serie-9-2026-2027/226134"
+    );
 }
 
 function criarCard(d,nome,classe,link){
+
+    let corResultado = "#6c757d";
+    let textoResultado = "RESULTADO";
+
+    try{
+
+        const partes =
+        d.ultimoResultado.resultado.split("-");
+
+        const golosCasa =
+        parseInt(partes[0]);
+
+        const golosFora =
+        parseInt(partes[1]);
+
+        const sintrenseCasa =
+        d.ultimoResultado.casa
+        .includes("Sintrense");
+
+        let golosSintrense;
+        let golosAdversario;
+
+        if(sintrenseCasa){
+
+            golosSintrense = golosCasa;
+            golosAdversario = golosFora;
+
+        }else{
+
+            golosSintrense = golosFora;
+            golosAdversario = golosCasa;
+
+        }
+
+        if(golosSintrense > golosAdversario){
+
+            corResultado = "#28A745";
+            textoResultado = "VITÓRIA";
+
+        }else if(golosSintrense < golosAdversario){
+
+            corResultado = "#DC3545";
+            textoResultado = "DERROTA";
+
+        }else{
+
+            corResultado = "#FFC107";
+            textoResultado = "EMPATE";
+
+        }
+
+    }catch(e){}
 
     const html = `
 
@@ -324,9 +363,7 @@ function criarCard(d,nome,classe,link){
                         ${d.proximoJogo.casa}
                     </div>
 
-                    <div class="vs">
-                        VS
-                    </div>
+                    <div class="vs">VS</div>
 
                     <div class="equipa">
                         ${d.proximoJogo.fora}
@@ -357,7 +394,7 @@ function criarCard(d,nome,classe,link){
                             ${d.golosMarcados}
                         </div>
                         <div class="stat-label">
-                            GOLOS<br>MARCADOS
+                            GOLOS MARCADOS
                         </div>
                     </div>
 
@@ -366,7 +403,7 @@ function criarCard(d,nome,classe,link){
                             ${d.golosSofridos}
                         </div>
                         <div class="stat-label">
-                            GOLOS<br>SOFRIDOS
+                            GOLOS SOFRIDOS
                         </div>
                     </div>
 
@@ -375,7 +412,7 @@ function criarCard(d,nome,classe,link){
                             ${d.diferenca}
                         </div>
                         <div class="stat-label">
-                            DIFERENÇA<br>DE GOLOS
+                            DIFERENÇA
                         </div>
                     </div>
 
@@ -389,7 +426,13 @@ function criarCard(d,nome,classe,link){
                     ÚLTIMO RESULTADO
                 </div>
 
-                <div class="resultado">
+                <div
+                    class="resultado"
+                    style="background:${corResultado}">
+
+                    <div class="resultado-estado">
+                        ${textoResultado}
+                    </div>
 
                     <div class="resultado-equipa">
                         ${d.ultimoResultado.casa}
@@ -422,7 +465,6 @@ function criarCard(d,nome,classe,link){
     `;
 
     document.getElementById("conteudo").innerHTML += html;
-
 }
 
 carregarDados();
