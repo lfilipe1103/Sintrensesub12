@@ -3,12 +3,15 @@ name: Atualizar Dados Sintrense
 
 on:
   workflow_dispatch:
-
   schedule:
     - cron: "0 */4 * * *"
 
 permissions:
   contents: write
+
+concurrency:
+  group: atualizar-sintrense
+  cancel-in-progress: false
 
 jobs:
   update:
@@ -31,18 +34,17 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests beautifulsoup4
 
-      - name: Atualizar Dados
+      - name: Executar Python
         run: |
           python atualizar_dados.py
 
       - name: Verificar dados
         run: |
-          echo "Conteudo do dados.json:"
+          echo "A verificar dados.json"
           cat dados.json
-          echo "Estado do repositorio:"
-          git status --short
+          test -s dados.json
 
-      - name: Guardar dados no GitHub
+      - name: PUBLICAR DADOS - VERSAO NOVA
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -50,11 +52,12 @@ jobs:
           git add dados.json
 
           if git diff --cached --quiet; then
-            echo "Sem alterações nos dados."
-          else
-            git commit -m "Atualizacao automatica dos dados"
-
-            git pull --rebase origin main
-
-            git push origin main
+            echo "Sem alterações."
+            exit 0
           fi
+
+          git commit -m "Atualizacao automatica Sintrense"
+
+          git pull --rebase origin main
+
+          git push origin main
