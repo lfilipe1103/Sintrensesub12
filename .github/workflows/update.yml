@@ -3,6 +3,7 @@ name: Atualizar Dados Sintrense
 
 on:
   workflow_dispatch:
+
   schedule:
     - cron: "0 */4 * * *"
 
@@ -17,6 +18,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          fetch-depth: 0
           persist-credentials: true
 
       - name: Configurar Python
@@ -35,7 +37,9 @@ jobs:
 
       - name: Verificar dados
         run: |
+          echo "Conteudo do dados.json:"
           cat dados.json
+          echo "Estado do repositorio:"
           git status --short
 
       - name: Guardar dados no GitHub
@@ -49,5 +53,8 @@ jobs:
             echo "Sem alterações nos dados."
           else
             git commit -m "Atualizacao automatica dos dados"
-            git push
-           fi
+
+            git pull --rebase origin main
+
+            git push origin main
+          fi
