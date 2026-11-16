@@ -1,118 +1,106 @@
 {
-  "ultimaAtualizacao": "10/11/2026 10:58",
+  "ultimaAtualizacao": "16/11/2026 13:42",
   "sintrenseA": {
-    "posicao": "3",
+    "posicao": "4",
     "equipa": "Sintrense",
     "pontos": "9",
-    "jogos": "4",
+    "jogos": "5",
     "vitorias": "3",
     "empates": "0",
-    "derrotas": "1",
-    "golosMarcados": "32",
-    "golosSofridos": "9",
-    "diferenca": "+23",
+    "derrotas": "2",
+    "golosMarcados": "33",
+    "golosSofridos": "14",
+    "diferenca": "+19",
     "ultimoResultado": {
-      "data": "07/11",
-      "casa": "Sintrense",
-      "resultado": "13-1",
-      "fora": "CD Belas"
-    },
-    "proximoJogo": {
       "data": "14/11",
       "casa": "Sintrense",
-      "hora": "09:00",
-      "fora": "Malveira da Serra C",
-      "adversario": "Malveira da Serra C"
+      "resultado": "1-5",
+      "fora": "Malveira da Serra C"
     },
+    "proximoJogo": {},
     "top5": [
       {
         "posicao": "1",
         "equipa": "Estoril Praia B",
-        "pontos": "10"
+        "pontos": "13"
       },
       {
         "posicao": "2",
+        "equipa": "Malveira da Serra C",
+        "pontos": "12"
+      },
+      {
+        "posicao": "3",
         "equipa": "EF Belém Estádio Restelo D",
         "pontos": "10"
       },
       {
-        "posicao": "3",
-        "equipa": "Sintrense",
-        "pontos": "9"
-      },
-      {
         "posicao": "4",
-        "equipa": "Malveira da Serra C",
+        "equipa": "Sintrense",
         "pontos": "9"
       },
       {
         "posicao": "5",
         "equipa": "União Mercês",
-        "pontos": "5"
+        "pontos": "8"
       }
     ],
     "proximosJogos": [
       {
-        "data": "14/11",
-        "casa": "Sintrense",
-        "hora": "09:00",
-        "fora": "Malveira da Serra C"
+        "data": "21/11",
+        "casa": "União Mercês",
+        "hora": "09:30",
+        "fora": "Rio de Mouro"
       },
       {
         "data": "",
-        "casa": "Agualva",
-        "hora": "09:00",
-        "fora": "União Mercês"
+        "casa": "Mem Martins SC",
+        "hora": "09:30",
+        "fora": "Agualva"
       },
       {
         "data": "",
-        "casa": "Estoril Praia B",
-        "hora": "09:00",
-        "fora": "Mem Martins SC"
+        "casa": "Malveira da Serra C",
+        "hora": "10:30",
+        "fora": "CD Belas"
       },
       {
         "data": "",
-        "casa": "Assoc. Torre B",
-        "hora": "09:00",
-        "fora": "Bless Academy"
+        "casa": "Bless Academy",
+        "hora": "10:30",
+        "fora": "Estoril Praia B"
       },
       {
         "data": "",
-        "casa": "CD Belas",
-        "hora": "09:00",
-        "fora": "Real SC"
+        "casa": "EF Belém Estádio Restelo D",
+        "hora": "10:30",
+        "fora": "Assoc. Torre B"
       }
     ]
   },
   "sintrenseB": {
-    "posicao": "7",
+    "posicao": "8",
     "equipa": "Sintrense B",
     "pontos": "6",
-    "jogos": "3",
+    "jogos": "4",
     "vitorias": "2",
     "empates": "0",
-    "derrotas": "1",
-    "golosMarcados": "17",
-    "golosSofridos": "8",
-    "diferenca": "+9",
+    "derrotas": "2",
+    "golosMarcados": "18",
+    "golosSofridos": "21",
+    "diferenca": "-3",
     "ultimoResultado": {
       "data": "",
-      "casa": "CD Mafra B",
-      "resultado": "0-7",
+      "casa": "Algés B",
+      "resultado": "13-1",
       "fora": "Sintrense B"
     },
-    "proximoJogo": {
-      "data": "",
-      "casa": "Algés B",
-      "hora": "09:00",
-      "fora": "Sintrense B",
-      "adversario": "Algés B"
-    },
+    "proximoJogo": {},
     "top5": [
       {
         "posicao": "1",
         "equipa": "Algés B",
-        "pontos": "12"
+        "pontos": "15"
       },
       {
         "posicao": "2",
@@ -121,50 +109,50 @@
       },
       {
         "posicao": "3",
-        "equipa": "Outurela",
-        "pontos": "9"
+        "equipa": "Sp. Lourel",
+        "pontos": "10"
       },
       {
         "posicao": "4",
-        "equipa": "Malveira da Serra B",
-        "pontos": "7"
+        "equipa": "Vila Verde",
+        "pontos": "9"
       },
       {
         "posicao": "5",
-        "equipa": "Sp. Lourel",
-        "pontos": "7"
+        "equipa": "Outurela",
+        "pontos": "9"
       }
     ],
     "proximosJogos": [
       {
-        "data": "14/11",
-        "casa": "Vila Verde",
-        "hora": "09:00",
-        "fora": "Outurela"
-      },
-      {
-        "data": "",
-        "casa": "Atlético Cacém",
-        "hora": "09:00",
-        "fora": "Sp. Lourel"
-      },
-      {
-        "data": "",
-        "casa": "Malveira da Serra B",
-        "hora": "09:00",
-        "fora": "CD Mafra B"
-      },
-      {
-        "data": "",
-        "casa": "Algés B",
-        "hora": "09:00",
-        "fora": "Sintrense B"
-      },
-      {
-        "data": "",
-        "casa": "Arsenal 72",
+        "data": "21/11",
+        "casa": "Agualva B",
         "hora": "09:30",
-        "fora": "Agualva B"
+        "fora": "Vila Verde"
+      },
+      {
+        "data": "",
+        "casa": "União Mucifalense",
+        "hora": "09:30",
+        "fora": "1º Dezembro"
+      },
+      {
+        "data": "",
+        "casa": "Sp. Lourel",
+        "hora": "09:30",
+        "fora": "At. Malveira B"
+      },
+      {
+        "data": "",
+        "casa": "Outurela",
+        "hora": "10:30",
+        "fora": "Algés B"
+      },
+      {
+        "data": "",
+        "casa": "CD Mafra B",
+        "hora": "12:00",
+        "fora": "Atlético Cacém"
       }
     ]
   }
