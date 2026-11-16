@@ -1,5 +1,5 @@
 {
-  "ultimaAtualizacao": "16/11/2026 14:20",
+  "ultimaAtualizacao": "16/11/2026 14:42",
   "sintrenseA": {
     "posicao": "4",
     "equipa": "Sintrense",
@@ -20,8 +20,8 @@
     "proximoJogo": {
       "data": "2026-11-21",
       "hora": "12:00",
-      "local": "(F)",
-      "adversario": "Est. Amadora B -"
+      "casa": "Est. Amadora B",
+      "fora": "Sintrense"
     },
     "top5": [
       {
@@ -103,8 +103,8 @@
     "proximoJogo": {
       "data": "2026-11-21",
       "hora": "12:00",
-      "local": "(C)",
-      "adversario": "Malveira da Serra B -"
+      "casa": "Sintrense",
+      "fora": "Malveira da Serra B"
     },
     "top5": [
       {
