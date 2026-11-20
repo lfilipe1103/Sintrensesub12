@@ -1,792 +1,868 @@
 <!DOCTYPE html>
 <html lang="pt">
-
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<title>Sintrense Sub-12 — Painel Oficial</title>
 
-<title>Sintra Scout Dashboard</title>
+<link rel="icon" href="logo.ico">
+<meta name="theme-color" content="#0057B8">
 
 <style>
-
 :root{
-
-    --sintra-yellow:#f5d300;
-    --sintra-yellow-dark:#d9bb00;
-
-    --sintra-blue:#1c2f8b;
-    --sintra-blue-light:#3550d6;
-
-    --green:#16a34a;
-    --red:#dc2626;
-    --orange:#f59e0b;
-
-    --white:#ffffff;
-    --black:#111827;
-
+    --azul-principal: #0057B8;
+    --azul-escuro: #003B7A;
+    --amarelo-clube: #FFD100;
+    --fundo-pagina: #eef2f7;
+    --texto-principal: #1e293b;
+    --texto-secundario: #64748b;
+    --verde: #16a34a;
+    --vermelho: #dc2626;
+    --amarelo-empate: #eab308;
 }
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:
-    "Segoe UI",
-    Tahoma,
-    sans-serif;
+    font-family: 'Segoe UI', Roboto, Arial, Helvetica, sans-serif;
+}
+
+html{
+    scroll-behavior: smooth;
 }
 
 body{
-
-    background:
-    linear-gradient(
-        180deg,
-        #f5d300,
-        #eac900
-    );
-
-    min-height:100vh;
-
-    padding:20px;
-
-    color:#111827;
-
+    background: var(--fundo-pagina);
+    color: var(--texto-principal);
+    padding-bottom: 30px;
 }
 
-.header{
-
-    background:
-    linear-gradient(
-        135deg,
-        var(--sintra-blue),
-        var(--sintra-blue-light)
-    );
-
-    color:white;
-
-    text-align:center;
-
-    padding:30px;
-
-    border-radius:20px;
-
-    margin-bottom:25px;
-
-    box-shadow:
-    0 8px 20px rgba(0,0,0,.20);
-
+header{
+    background: linear-gradient(135deg, var(--azul-principal), var(--azul-escuro));
+    color: white;
+    text-align: center;
+    padding: 28px 20px 22px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.12);
 }
 
-.header h1{
-
-    font-size:42px;
-
-    margin-bottom:10px;
-
+.logo{
+    width: 85px;
+    height: 85px;
+    background: white;
+    border-radius: 50%;
+    padding: 8px;
+    margin-bottom: 10px;
+    object-fit: contain;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-.atualizacao{
-
-    opacity:.9;
-
+header h1{
+    font-size: 28px;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
 }
 
-.comparacao{
-
-    background:white;
-
-    border-radius:20px;
-
-    padding:20px;
-
-    margin-bottom:25px;
-
-    box-shadow:
-    0 5px 15px rgba(0,0,0,.12);
-
+.update{
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 13px;
 }
 
-.comparacao h2{
-
-    color:var(--sintra-blue);
-
-    margin-bottom:15px;
-
+.nav-equipas{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    max-width: 680px;
+    margin: 15px auto 5px;
+    padding: 0 15px;
 }
 
-.grid{
+.nav-btn{
+    flex: 1;
+    text-align: center;
+    text-decoration: none;
+    background: white;
+    color: var(--azul-principal);
+    font-weight: bold;
+    padding: 12px;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border: 2px solid transparent;
+    transition: all 0.2s;
+}
 
-    display:grid;
+.nav-btn:hover{
+    border-color: var(--azul-principal);
+}
 
-    grid-template-columns:
-    repeat(
-        auto-fit,
-        minmax(
-            500px,
-            1fr
-        )
-    );
-
-    gap:25px;
-
+.container{
+    max-width: 680px;
+    margin: auto;
+    padding: 12px 15px;
 }
 
 .card{
-
-    background:white;
-
-    border-radius:20px;
-
-    padding:20px;
-
-    box-shadow:
-    0 5px 15px rgba(0,0,0,.12);
-
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    margin-bottom: 28px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.07);
 }
 
-.card h2{
-
-    color:var(--sintra-blue);
-
-    margin-bottom:20px;
-
+.card-a{
+    border-top: 8px solid var(--azul-principal);
 }
 
-.stats{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(
-        4,
-        1fr
-    );
-
-    gap:10px;
-
-    margin-bottom:20px;
-
+.card-b{
+    border-top: 8px solid var(--amarelo-clube);
 }
 
-.stat{
-
-    background:
-    linear-gradient(
-        135deg,
-        var(--sintra-blue),
-        var(--sintra-blue-light)
-    );
-
-    color:white;
-
-    text-align:center;
-
-    padding:15px;
-
-    border-radius:12px;
-
+.card-header{
+    background: #f8fafc;
+    padding: 22px 20px;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
-.stat b{
-
-    display:block;
-
-    font-size:28px;
-
+.equipa-identidade h2{
+    font-size: 26px;
+    color: var(--texto-principal);
 }
 
-.forma{
-
-    display:flex;
-
-    gap:10px;
-
-    margin-bottom:20px;
-
+.equipa-nome-oficial{
+    font-size: 14px;
+    color: var(--texto-secundario);
+    font-weight: 600;
+    margin-top: 2px;
 }
 
-.forma span{
-
-    width:42px;
-
-    height:42px;
-
-    border-radius:50%;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    font-weight:bold;
-
-    color:white;
-
+.posicao-box{
+    text-align: right;
+    background: white;
+    padding: 10px 18px;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.03);
 }
 
-.V{
-
-    background:var(--green);
-
+.posicao-label{
+    font-size: 11px;
+    font-weight: bold;
+    color: var(--texto-secundario);
+    letter-spacing: 1px;
+    display: block;
 }
 
-.D{
-
-    background:var(--red);
-
+.posicao-numero{
+    font-size: 38px;
+    font-weight: 800;
+    color: var(--azul-principal);
+    line-height: 1.1;
 }
 
-.E{
-
-    background:var(--orange);
-
+.posicao-pontos{
+    font-size: 13px;
+    font-weight: bold;
+    color: var(--texto-principal);
+    margin-top: 2px;
 }
 
-.jogos{
-
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:15px;
-
-    margin-top:15px;
-
-    margin-bottom:15px;
-
+.conteudo{
+    padding: 20px;
 }
 
-.jogo{
-
-    background:
-    linear-gradient(
-        135deg,
-        var(--sintra-blue),
-        var(--sintra-blue-light)
-    );
-
-    color:white;
-
-    padding:15px;
-
-    border-radius:15px;
-
-    text-align:center;
-
+.secao{
+    margin-bottom: 24px;
 }
 
-.jogo h3{
-
-    margin-bottom:10px;
-
+.secao:last-child{
+    margin-bottom: 0;
 }
 
-table{
-
-    width:100%;
-
-    border-collapse:collapse;
-
-    margin-top:10px;
-
-    margin-bottom:20px;
-
+.secao-titulo{
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--texto-secundario);
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-th{
-
-    background:
-    var(--sintra-blue);
-
-    color:white;
-
+.grid-stats{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
 }
 
-th,
-td{
-
-    border:1px solid #ddd;
-
-    padding:8px;
-
-    text-align:left;
-
+.stat-box{
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 12px 6px;
+    text-align: center;
 }
 
-tr:nth-child(even){
-
-    background:#f5f5f5;
-
+.stat-box.destaque{
+    background: #eff6ff;
+    border-color: #bfdbfe;
 }
 
-.top5 .sintrense{
-
-    background:
-    var(--sintra-yellow);
-
-    font-weight:bold;
-
+.stat-valor{
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--azul-principal);
 }
 
-.links{
+.stat-valor.verde{ color: var(--verde); }
+.stat-valor.vermelho{ color: var(--vermelho); }
+.stat-valor.neutro{ color: var(--texto-principal); }
 
-    display:flex;
-
-    flex-wrap:wrap;
-
-    gap:10px;
-
-    margin-top:20px;
-
+.stat-label{
+    font-size: 10px;
+    font-weight: bold;
+    color: var(--texto-secundario);
+    margin-top: 4px;
+    text-transform: uppercase;
 }
 
-.links a{
-
-    background:
-    var(--sintra-yellow);
-
-    color:black;
-
-    text-decoration:none;
-
-    padding:12px 20px;
-
-    border-radius:10px;
-
-    border:
-    2px solid
-    var(--sintra-blue);
-
-    font-weight:bold;
-
+.proximo-jogo{
+    background: #fefce8;
+    border: 1px solid #fef08a;
+    border-radius: 18px;
+    padding: 18px;
+    text-align: center;
 }
 
-.links a:hover{
-
-    background:
-    var(--sintra-blue);
-
-    color:white;
-
+.jogo-badge{
+    display: inline-block;
+    background: var(--amarelo-clube);
+    color: #1e293b;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
 }
 
-@media(max-width:900px){
+.confronto{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
 
-    .grid{
+.equipa-jogo{
+    font-size: 19px;
+    font-weight: 800;
+    color: var(--texto-principal);
+}
 
-        grid-template-columns:1fr;
+.vs{
+    font-size: 13px;
+    font-weight: bold;
+    color: var(--texto-secundario);
+    background: white;
+    padding: 4px 8px;
+    border-radius: 8px;
+}
 
+.jogo-meta{
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 12px;
+}
+
+.jogo-data{
+    font-size: 15px;
+    font-weight: 700;
+    color: #475569;
+}
+
+.jogo-hora{
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--azul-principal);
+}
+
+.jogo-seguinte{
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 12px 16px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.js-info{
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.js-tag{
+    font-size: 11px;
+    color: var(--azul-principal);
+    font-weight: 800;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.js-horario{
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--texto-secundario);
+    background: white;
+    padding: 5px 10px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.ultimos5-card{
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 14px;
+}
+
+.forma-linha{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.forma-badges{
+    display: flex;
+    gap: 6px;
+}
+
+.forma-bolinha{
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 800;
+    color: white;
+}
+
+.u5-grid{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+    text-align: center;
+}
+
+.u5-item{
+    background: white;
+    padding: 8px 4px;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+}
+
+.u5-val{
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.u5-lbl{
+    font-size: 10px;
+    color: var(--texto-secundario);
+    font-weight: bold;
+    margin-top: 2px;
+}
+
+.ultimo-destaque{
+    border-radius: 18px;
+    padding: 18px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.res-topo{
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    opacity: 0.95;
+    margin-bottom: 8px;
+}
+
+.res-placar-box{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.res-equipa{
+    flex: 1;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.res-score{
+    font-size: 36px;
+    font-weight: 900;
+    padding: 4px 14px;
+    background: rgba(0,0,0,0.15);
+    border-radius: 12px;
+}
+
+.lista-resultados{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.item-resultado{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 10px 12px;
+    border-radius: 12px;
+    font-size: 13px;
+    gap: 8px;
+}
+
+.item-data{
+    font-size: 11px;
+    color: var(--texto-secundario);
+    font-weight: 600;
+    min-width: 72px;
+}
+
+.item-equipas{
+    flex: 1;
+    font-weight: 700;
+    text-align: center;
+}
+
+.item-badge{
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-weight: 800;
+    font-size: 13px;
+    min-width: 52px;
+    text-align: center;
+}
+
+.tabela-top5{
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    font-size: 14px;
+}
+
+.tabela-top5 th{
+    background: #f1f5f9;
+    color: var(--texto-secundario);
+    font-size: 11px;
+    font-weight: 800;
+    padding: 10px 12px;
+    text-align: left;
+}
+
+.tabela-top5 td{
+    padding: 10px 12px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.tabela-top5 tr.linha-sintrense{
+    background: #eff6ff;
+    color: var(--azul-principal);
+    font-weight: 800;
+}
+
+.col-pos{ width: 45px; font-weight: 800; }
+.col-pts{ width: 65px; text-align: right; font-weight: 800; }
+
+.btn-zerozero{
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    background: var(--azul-principal);
+    color: white;
+    font-weight: 800;
+    font-size: 14px;
+    padding: 15px;
+    border-radius: 14px;
+    margin-top: 20px;
+    letter-spacing: 0.5px;
+    transition: background 0.2s;
+}
+
+.btn-zerozero:hover{
+    background: var(--azul-escuro);
+}
+
+.footer{
+    text-align: center;
+    padding: 15px;
+    color: var(--texto-secundario);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+@media(max-width: 520px){
+    .grid-stats{
+        grid-template-columns: repeat(2, 1fr);
     }
-
-    .stats{
-
-        grid-template-columns:
-        repeat(
-            2,
-            1fr
-        );
-
+    .u5-grid{
+        grid-template-columns: repeat(3, 1fr);
     }
-
-    .jogos{
-
-        grid-template-columns:1fr;
-
+    .res-equipa{
+        font-size: 14px;
     }
-
+    .res-score{
+        font-size: 28px;
+    }
 }
-
 </style>
-
 </head>
 
 <body>
 
-<div class="header">
-
-    <h1>⚽ SINTRA SCOUT</h1>
-
-    <div
-        class="atualizacao"
-        id="atualizacao">
+<header>
+    <img src="logo.ico" class="logo" alt="Sport União Sintrense">
+    <h1>SINTRENSE SUB-12</h1>
+    <div class="update">
+        Atualizado em: <strong id="atualizacao">A carregar...</strong>
     </div>
+</header>
 
-</div>
+<nav class="nav-equipas">
 
-<div class="comparacao">
+<nav class="nav-equipas">
+    <a href="#equipa-a" class="nav-btn">↓ EQUIPA A</a>
+    <a href="#equipa-b" class="nav-btn">↓ EQUIPA B</a>
+</nav>
 
-    <h2>
-        Comparação Geral
-    </h2>
+<main class="container" id="conteudo"></main>
 
-    <table id="comparacao">
-    </table>
-
-</div>
-
-<div class="grid">
-
-    <div id="equipaA">
-    </div>
-
-    <div id="equipaB">
-    </div>
-
-</div>
+<footer class="footer">
+    Sport União Sintrense • Época 2026/2027
+</footer>
 
 <script>
-
-async function carregarDados(){
-
-const response =
-await fetch("dados.json");
-
-const dados =
-await response.json();
-
-document
-.getElementById(
-"atualizacao"
-)
-.innerHTML =
-"Atualizado: "
-+
-dados
-.ultimaAtualizacao;
-
-criarComparacao(
-    dados.sintrenseA,
-    dados.sintrenseB
-);
-
-document
-.getElementById(
-    "equipaA"
-)
-.innerHTML =
-criarEquipa(
-    dados.sintrenseA,
-    "SINTRENSE A",
-    "https://www.zerozero.pt/equipa/sintrense/58378/jogos?grp=1"
-);
-
-document
-.getElementById(
-    "equipaB"
-)
-.innerHTML =
-criarEquipa(
-    dados.sintrenseB,
-    "SINTRENSE B",
-    "https://www.zerozero.pt/equipa/sintrense/208650/jogos?grp=1"
-);
-
+function formatarData(dataISO){
+    if(!dataISO) return "";
+    const partes = dataISO.split("-");
+    if(partes.length === 3){
+        return `${partes.at(2)}/${partes.at(1)}/${partes.at(0)}`;
+    }
+    return dataISO;
 }
 
-function criarComparacao(a,b){
+function analisarJogo(jogo){
+    let cor = "#64748b";
+    let corTexto = "#ffffff";
+    let estado = "RESULTADO";
 
-document
-.getElementById(
-    "comparacao"
-)
-.innerHTML = `
+    try{
+        const partes = jogo.resultado.split("-");
+        const golosCasa = parseInt(partes.at(0), 10);
+        const golosFora = parseInt(partes.at(1), 10);
+        const sintrenseEmCasa = jogo.casa.toLowerCase().includes("sintrense");
 
-<tr>
-<th>Métrica</th>
-<th>A</th>
-<th>B</th>
-</tr>
+        const golosSintrense = sintrenseEmCasa ? golosCasa : golosFora;
+        const golosAdversario = sintrenseEmCasa ? golosFora : golosCasa;
 
-<tr>
-<td>Posição</td>
-<td>${a.posicao}</td>
-<td>${b.posicao}</td>
-</tr>
+        if(golosSintrense > golosAdversario){
+            cor = "#16a34a";
+            estado = "VITÓRIA";
+        } else if(golosSintrense < golosAdversario){
+            cor = "#dc2626";
+            estado = "DERROTA";
+        } else {
+            cor = "#eab308";
+            corTexto = "#1e293b";
+            estado = "EMPATE";
+        }
+    }catch(e){}
 
-<tr>
-<td>Pontos</td>
-<td>${a.pontos}</td>
-<td>${b.pontos}</td>
-</tr>
-
-<tr>
-<td>GM</td>
-<td>${a.golosMarcados}</td>
-<td>${b.golosMarcados}</td>
-</tr>
-
-<tr>
-<td>GS</td>
-<td>${a.golosSofridos}</td>
-<td>${b.golosSofridos}</td>
-</tr>
-
-<tr>
-<td>Forma</td>
-<td>${a.forma}</td>
-<td>${b.forma}</td>
-</tr>
-
-`;
-
+    return { cor, corTexto, estado };
 }
 
-function desenharForma(forma){
-
-return forma
-.split("")
-.map(
-l =>
-`<span class="${l}">
-${l}
-</span>`
-)
-.join("");
-
+function renderizarForma(forma){
+    if(!forma) return "";
+    return forma.split("").map(letra => {
+        let bg = "#64748b";
+        let txt = "#ffffff";
+        if(letra === "V") bg = "#16a34a";
+        else if(letra === "D") bg = "#dc2626";
+        else if(letra === "E"){ bg = "#eab308"; txt = "#1e293b"; }
+        return `<span class="forma-bolinha" style="background:${bg};color:${txt}">${letra}</span>`;
+    }).join("");
 }
 
-function criarEquipa(
-dados,
-titulo,
-link
-){
-
-return `
-
-<div class="card">
-
-<h2>
-${titulo}
-</h2>
-
-<div class="stats">
-
-<div class="stat">
-<b>${dados.posicao}</b>
-Posição
-</div>
-
-<div class="stat">
-<b>${dados.pontos}</b>
-Pontos
-</div>
-
-<div class="stat">
-<b>${dados.jogos}</b>
-Jogos
-</div>
-
-<div class="stat">
-<b>${dados.diferenca}</b>
-Dif.
-</div>
-
-</div>
-
-<h3>
-Forma Atual
-</h3>
-
-<div class="forma">
-
-${desenharForma(
-dados.forma
-)}
-
-</div>
-
-<p>
-
-Vitórias:
-${dados.ultimos5.vitorias}
-
-|
-Empates:
-${dados.ultimos5.empates}
-
-|
-Derrotas:
-${dados.ultimos5.derrotas}
-
-</p>
-
-<br>
-
-<p>
-
-GM:
-${dados.ultimos5.golosMarcados}
-
-|
-
-GS:
-${dados.ultimos5.golosSofridos}
-
-</p>
-
-<div class="jogos">
-
-<div class="jogo">
-
-<h3>
-Próximo Jogo
-</h3>
-
-<p>
-${dados.proximoJogo.data}
-</p>
-
-<p>
-${dados.proximoJogo.hora}
-</p>
-
-<br>
-
-<b>
-${dados.proximoJogo.casa}
-</b>
-
-<br>
-vs
-<br>
-
-<b>
-${dados.proximoJogo.fora}
-</b>
-
-</div>
-
-<div class="jogo">
-
-<h3>
-Jogo Seguinte
-</h3>
-
-<p>
-${dados.jogoSeguinte.data}
-</p>
-
-<p>
-${dados.jogoSeguinte.hora}
-</p>
-
-<br>
-
-<b>
-${dados.jogoSeguinte.casa}
-</b>
-
-<br>
-vs
-<br>
-
-<b>
-${dados.jogoSeguinte.fora}
-</b>
-
-</div>
-
-</div>
-
-<h3>
-Últimos Resultados
-</h3>
-
-<table>
-
-<tr>
-<th>Data</th>
-<th>Casa</th>
-<th>Res</th>
-<th>Fora</th>
-</tr>
-
-${dados.ultimosResultados
-.map(j=>`
-
-<tr>
-<td>${j.data}</td>
-<td>${j.casa}</td>
-<td>${j.resultado}</td>
-<td>${j.fora}</td>
-</tr>
-
-`).join("")}
-
-</table>
-
-<h3>
-Top 5
-</h3>
-
-<table class="top5">
-
-<tr>
-<th>Pos</th>
-<th>Equipa</th>
-<th>Pts</th>
-</tr>
-
-${dados.top5
-.map(
-t => `
-
-<tr class="${
-t.equipa === dados.equipa
-?
-'sintrense'
-:
-''
-}">
-
-<td>${t.posicao}</td>
-<td>${t.equipa}</td>
-<td>${t.pontos}</td>
-
-</tr>
-
-`
-).join("")}
-
-</table>
-
-<div class="links">
-
-<a
-target="_blank"
-href="${link}"
->
-⚽ Jogos ZeroZero
-</a>
-
-<a
-target="_blank"
-href="${
-link.replace(
-'/jogos?grp=1',
-''
-)
-}"
->
-🏆 Equipa
-</a>
-
-</div>
-
-</div>
-
-`;
-
+function criarCardEquipa(dadosEquipa, tituloCartao, idAncora, classeCartao, linkZeroZero){
+    const resultados = dadosEquipa.ultimosResultados || [];
+    const jogoMaisRecente = resultados.at(0);
+    const historicoRestante = resultados.slice(1);
+
+    let htmlUltimoResultado = "";
+    if(jogoMaisRecente){
+        const analise = analisarJogo(jogoMaisRecente);
+        htmlUltimoResultado = `
+            <div class="ultimo-destaque" style="background:${analise.cor};color:${analise.corTexto}">
+                <div class="res-topo">${analise.estado} • ${formatarData(jogoMaisRecente.data)}</div>
+                <div class="res-placar-box">
+                    <div class="res-equipa">${jogoMaisRecente.casa}</div>
+                    <div class="res-score">${jogoMaisRecente.resultado}</div>
+                    <div class="res-equipa">${jogoMaisRecente.fora}</div>
+                </div>
+            </div>
+        `;
+    }
+
+    let htmlHistorico = "";
+    if(historicoRestante.length > 0){
+        const itens = historicoRestante.map(j => {
+            const analise = analisarJogo(j);
+            return `
+                <div class="item-resultado">
+                    <span class="item-data">${formatarData(j.data)}</span>
+                    <span class="item-equipas">${j.casa} vs ${j.fora}</span>
+                    <span class="item-badge" style="background:${analise.cor};color:${analise.corTexto}">${j.resultado}</span>
+                </div>
+            `;
+        }).join("");
+        htmlHistorico = `<div class="lista-resultados">${itens}</div>`;
+    }
+
+    let htmlUltimos5 = "";
+    if(dadosEquipa.ultimos5 || dadosEquipa.forma){
+        const u5 = dadosEquipa.ultimos5 || {};
+        htmlUltimos5 = `
+            <div class="secao">
+                <div class="secao-titulo">Rendimento Recente (Últimos 5)</div>
+                <div class="ultimos5-card">
+                    ${dadosEquipa.forma ? `
+                    <div class="forma-linha">
+                        <span style="font-size:12px;font-weight:700;color:#64748b;">SEQUÊNCIA DE FORMA</span>
+                        <div class="forma-badges">${renderizarForma(dadosEquipa.forma)}</div>
+                    </div>` : ""}
+                    ${dadosEquipa.ultimos5 ? `
+                    <div class="u5-grid">
+                        <div class="u5-item">
+                            <div class="u5-val" style="color:var(--verde)">${u5.vitorias}</div>
+                            <div class="u5-lbl">VITÓRIAS</div>
+                        </div>
+                        <div class="u5-item">
+                            <div class="u5-val">${u5.empates}</div>
+                            <div class="u5-lbl">EMPATES</div>
+                        </div>
+                        <div class="u5-item">
+                            <div class="u5-val" style="color:var(--vermelho)">${u5.derrotas}</div>
+                            <div class="u5-lbl">DERROTAS</div>
+                        </div>
+                        <div class="u5-item">
+                            <div class="u5-val" style="color:var(--azul-principal)">${u5.golosMarcados}</div>
+                            <div class="u5-lbl">GOLOS M.</div>
+                        </div>
+                        <div class="u5-item">
+                            <div class="u5-val" style="color:var(--azul-principal)">${u5.golosSofridos}</div>
+                            <div class="u5-lbl">GOLOS S.</div>
+                        </div>
+                    </div>` : ""}
+                </div>
+            </div>
+        `;
+    }
+
+    let htmlTop5 = "";
+    if(dadosEquipa.top5 && dadosEquipa.top5.length > 0){
+        const linhas = dadosEquipa.top5.map(linha => {
+            const isSintrense = linha.equipa.toLowerCase().includes("sintrense");
+            return `
+                <tr class="${isSintrense ? "linha-sintrense" : ""}">
+                    <td class="col-pos">${linha.posicao}º</td>
+                    <td>${linha.equipa}</td>
+                    <td class="col-pts">${linha.pontos} pts</td>
+                </tr>
+            `;
+        }).join("");
+
+        htmlTop5 = `
+            <div class="secao">
+                <div class="secao-titulo">Classificação Top 5</div>
+                <table class="tabela-top5">
+                    <thead>
+                        <tr>
+                            <th>POS</th>
+                            <th>EQUIPA</th>
+                            <th style="text-align:right">PONTOS</th>
+                        </tr>
+                    </thead>
+                    <tbody>${linhas}</tbody>
+                </table>
+            </div>
+        `;
+    }
+
+    const cardHTML = `
+    <section id="${idAncora}" class="card ${classeCartao}">
+        <div class="card-header">
+            <div class="equipa-identidade">
+                <h2>${tituloCartao}</h2>
+                <div class="equipa-nome-oficial">${dadosEquipa.equipa} • ${dadosEquipa.jogos} Jogos Disputados</div>
+            </div>
+            <div class="posicao-box">
+                <span class="posicao-label">CLASSIFICAÇÃO</span>
+                <div class="posicao-numero">${dadosEquipa.posicao}º</div>
+                <div class="posicao-pontos">${dadosEquipa.pontos} Pontos</div>
+            </div>
+        </div>
+
+        <div class="conteudo">
+            <div class="secao">
+                <div class="secao-titulo">Resumo da Época</div>
+                <div class="grid-stats">
+                    <div class="stat-box destaque">
+                        <div class="stat-valor">${dadosEquipa.pontos}</div>
+                        <div class="stat-label">Pontos</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-valor neutro">${dadosEquipa.jogos}</div>
+                        <div class="stat-label">Jogos</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-valor verde">${dadosEquipa.vitorias}</div>
+                        <div class="stat-label">Vitórias</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-valor neutro">${dadosEquipa.empates}</div>
+                        <div class="stat-label">Empates</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-valor vermelho">${dadosEquipa.derrotas}</div>
+                        <div class="stat-label">Derrotas</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-valor">${dadosEquipa.golosMarcados}</div>
+                        <div class="stat-label">G. Marcados</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-valor">${dadosEquipa.golosSofridos}</div>
+                        <div class="stat-label">G. Sofridos</div>
+                    </div>
+                    <div class="stat-box destaque">
+                        <div class="stat-valor">${dadosEquipa.diferenca}</div>
+                        <div class="stat-label">Diferença</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="secao">
+                <div class="secao-titulo">Agenda de Jogos</div>
+                <div class="proximo-jogo">
+                    <span class="jogo-badge">PRÓXIMO JOGO</span>
+                    <div class="confronto">
+                        <span class="equipa-jogo">${dadosEquipa.proximoJogo.casa}</span>
+                        <span class="vs">VS</span>
+                        <span class="equipa-jogo">${dadosEquipa.proximoJogo.fora}</span>
+                    </div>
+                    <div class="jogo-meta">
+                        <span class="jogo-data">${formatarData(dadosEquipa.proximoJogo.data)}</span>
+                        <span class="jogo-hora">${dadosEquipa.proximoJogo.hora}</span>
+                    </div>
+                </div>
+
+                ${dadosEquipa.jogoSeguinte ? `
+                <div class="jogo-seguinte">
+                <div class="jogo-seguinte">
+                    <div class="js-info">
+                        <span class="js-tag">JOGO SEGUINTE</span>
+                        ${dadosEquipa.jogoSeguinte.casa} vs ${dadosEquipa.jogoSeguinte.fora}
+                    </div>
+                    <div class="js-horario">
+                        ${formatarData(dadosEquipa.jogoSeguinte.data)} • ${dadosEquipa.jogoSeguinte.hora}
+                    </div>
+                </div>` : ""}
+            </div>
+
+            ${htmlUltimos5}
+
+            <div class="secao">
+                <div class="secao-titulo">Resultados Anteriores (${resultados.length})</div>
+                ${htmlUltimoResultado}
+                ${htmlHistorico}
+            </div>
+
+            ${htmlTop5}
+
+            <a href="${linkZeroZero}" target="_blank" rel="noopener noreferrer" class="btn-zerozero">
+                VER CLASSIFICAÇÃO COMPLETA NO ZEROZERO ↗
+            </a>
+        </div>
+    </section>
+    `;
+
+    document.getElementById("conteudo").innerHTML += cardHTML;
 }
 
-carregarDados();
+async function iniciar(){
+    try{
+        const resposta = await fetch("dados.json");
+        if(!resposta.ok) throw new Error("Erro HTTP");
+        const dados = await resposta.json();
 
+        document.getElementById("atualizacao").textContent = dados.ultimaAtualizacao;
+
+        criarCardEquipa(
+            dados.sintrenseA,
+            "EQUIPA A",
+            "equipa-a",
+            "card-a",
+            "https://zerozero.pt"
+        );
+
+        criarCardEquipa(
+            dados.sintrenseB,
+            "EQUIPA B",
+            "equipa-b",
+            "card-b",
+            "https://zerozero.pt"
+        );
+    }catch(erro){
+        document.getElementById("atualizacao").textContent = "Indisponível";
+        document.getElementById("conteudo").innerHTML = `
+            <div class="card" style="padding:30px;text-align:center;color:#dc2626;font-weight:bold;">
+                Não foi possível carregar o ficheiro dados.json.<br>
+                <span style="font-size:13px;color:#64748b;font-weight:normal;">Verifica se o ficheiro está na mesma pasta e a correr num servidor web.</span>
+            </div>
+        `;
+    }
+}
+
+iniciar();
 </script>
 
 </body>
-
 </html>
