@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Sintra Scout Dashboard</title>
+
+<style>
+
+:root{
+
+    --sintra-yellow:#f5d300;
+    --sintra-yellow-dark:#d9bb00;
+
+    --sintra-blue:#1c2f8b;
+    --sintra-blue-light:#3550d6;
+
+    --green:#16a34a;
+    --red:#dc2626;
+    --orange:#f59e0b;
+
+    --white:#ffffff;
+    --black:#111827;
+
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:
+    "Segoe UI",
+    Tahoma,
+    sans-serif;
+}
+
+body{
+
+    background:
+    linear-gradient(
+        180deg,
+        #f5d300,
+        #eac900
+    );
+
+    min-height:100vh;
+
+    padding:20px;
+
+    color:#111827;
+
+}
+
+.header{
+
+    background:
+    linear-gradient(
+        135deg,
+        var(--sintra-blue),
+        var(--sintra-blue-light)
+    );
+
+    color:white;
+
+    text-align:center;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    margin-bottom:25px;
+
+    box-shadow:
+    0 8px 20px rgba(0,0,0,.20);
+
+}
+
+.header h1{
+
+    font-size:42px;
+
+    margin-bottom:10px;
+
+}
+
+.atualizacao{
+
+    opacity:.9;
+
+}
+
+.comparacao{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:20px;
+
+    margin-bottom:25px;
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,.12);
+
+}
+
+.comparacao h2{
+
+    color:var(--sintra-blue);
+
+    margin-bottom:15px;
+
+}
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(
+        auto-fit,
+        minmax(
+            500px,
+            1fr
+        )
+    );
+
+    gap:25px;
+
+}
+
+.card{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:20px;
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,.12);
+
+}
+
+.card h2{
+
+    color:var(--sintra-blue);
+
+    margin-bottom:20px;
+
+}
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(
+        4,
+        1fr
+    );
+
+    gap:10px;
+
+    margin-bottom:20px;
+
+}
+
+.stat{
+
+    background:
+    linear-gradient(
+        135deg,
+        var(--sintra-blue),
+        var(--sintra-blue-light)
+    );
+
+    color:white;
+
+    text-align:center;
+
+    padding:15px;
+
+    border-radius:12px;
+
+}
+
+.stat b{
+
+    display:block;
+
+    font-size:28px;
+
+}
+
+.forma{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-bottom:20px;
+
+}
+
+.forma span{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-weight:bold;
+
+    color:white;
+
+}
+
+.V{
+
+    background:var(--green);
+
+}
+
+.D{
+
+    background:var(--red);
+
+}
+
+.E{
+
+    background:var(--orange);
+
+}
+
+.jogos{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:15px;
+
+    margin-top:15px;
+
+    margin-bottom:15px;
+
+}
+
+.jogo{
+
+    background:
+    linear-gradient(
+        135deg,
+        var(--sintra-blue),
+        var(--sintra-blue-light)
+    );
+
+    color:white;
+
+    padding:15px;
+
+    border-radius:15px;
+
+    text-align:center;
+
+}
+
+.jogo h3{
+
+    margin-bottom:10px;
+
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin-top:10px;
+
+    margin-bottom:20px;
+
+}
+
+th{
+
+    background:
+    var(--sintra-blue);
+
+    color:white;
+
+}
+
+th,
+td{
+
+    border:1px solid #ddd;
+
+    padding:8px;
+
+    text-align:left;
+
+}
+
+tr:nth-child(even){
+
+    background:#f5f5f5;
+
+}
+
+.top5 .sintrense{
+
+    background:
+    var(--sintra-yellow);
+
+    font-weight:bold;
+
+}
+
+.links{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-top:20px;
+
+}
+
+.links a{
+
+    background:
+    var(--sintra-yellow);
+
+    color:black;
+
+    text-decoration:none;
+
+    padding:12px 20px;
+
+    border-radius:10px;
+
+    border:
+    2px solid
+    var(--sintra-blue);
+
+    font-weight:bold;
+
+}
+
+.links a:hover{
+
+    background:
+    var(--sintra-blue);
+
+    color:white;
+
+}
+
+@media(max-width:900px){
+
+    .grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .stats{
+
+        grid-template-columns:
+        repeat(
+            2,
+            1fr
+        );
+
+    }
+
+    .jogos{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+    <h1>⚽ SINTRA SCOUT</h1>
+
+    <div
+        class="atualizacao"
+        id="atualizacao">
+    </div>
+
+</div>
+
+<div class="comparacao">
+
+    <h2>
+        Comparação Geral
+    </h2>
+
+    <table id="comparacao">
+    </table>
+
+</div>
+
+<div class="grid">
+
+    <div id="equipaA">
+    </div>
+
+    <div id="equipaB">
+    </div>
+
+</div>
+
+<script>
+
+async function carregarDados(){
+
+const response =
+await fetch("dados.json");
+
+const dados =
+await response.json();
+
+document
+.getElementById(
+"atualizacao"
+)
+.innerHTML =
+"Atualizado: "
++
+dados
+.ultimaAtualizacao;
+
+criarComparacao(
+    dados.sintrenseA,
+    dados.sintrenseB
+);
+
+document
+.getElementById(
+    "equipaA"
+)
+.innerHTML =
+criarEquipa(
+    dados.sintrenseA,
+    "SINTRENSE A",
+    "https://www.zerozero.pt/equipa/sintrense/58378/jogos?grp=1"
+);
+
+document
+.getElementById(
+    "equipaB"
+)
+.innerHTML =
+criarEquipa(
+    dados.sintrenseB,
+    "SINTRENSE B",
+    "https://www.zerozero.pt/equipa/sintrense/208650/jogos?grp=1"
+);
+
+}
+
+function criarComparacao(a,b){
+
+document
+.getElementById(
+    "comparacao"
+)
+.innerHTML = `
+
+<tr>
+<th>Métrica</th>
+<th>A</th>
+<th>B</th>
+</tr>
+
+<tr>
+<td>Posição</td>
+<td>${a.posicao}</td>
+<td>${b.posicao}</td>
+</tr>
+
+<tr>
+<td>Pontos</td>
+<td>${a.pontos}</td>
+<td>${b.pontos}</td>
+</tr>
+
+<tr>
+<td>GM</td>
+<td>${a.golosMarcados}</td>
+<td>${b.golosMarcados}</td>
+</tr>
+
+<tr>
+<td>GS</td>
+<td>${a.golosSofridos}</td>
+<td>${b.golosSofridos}</td>
+</tr>
+
+<tr>
+<td>Forma</td>
+<td>${a.forma}</td>
+<td>${b.forma}</td>
+</tr>
+
+`;
+
+}
+
+function desenharForma(forma){
+
+return forma
+.split("")
+.map(
+l =>
+`<span class="${l}">
+${l}
+</span>`
+)
+.join("");
+
+}
+
+function criarEquipa(
+dados,
+titulo,
+link
+){
+
+return `
+
+<div class="card">
+
+<h2>
+${titulo}
+</h2>
+
+<div class="stats">
+
+<div class="stat">
+<b>${dados.posicao}</b>
+Posição
+</div>
+
+<div class="stat">
+<b>${dados.pontos}</b>
+Pontos
+</div>
+
+<div class="stat">
+<b>${dados.jogos}</b>
+Jogos
+</div>
+
+<div class="stat">
+<b>${dados.diferenca}</b>
+Dif.
+</div>
+
+</div>
+
+<h3>
+Forma Atual
+</h3>
+
+<div class="forma">
+
+${desenharForma(
+dados.forma
+)}
+
+</div>
+
+<p>
+
+Vitórias:
+${dados.ultimos5.vitorias}
+
+|
+Empates:
+${dados.ultimos5.empates}
+
+|
+Derrotas:
+${dados.ultimos5.derrotas}
+
+</p>
+
+<br>
+
+<p>
+
+GM:
+${dados.ultimos5.golosMarcados}
+
+|
+
+GS:
+${dados.ultimos5.golosSofridos}
+
+</p>
+
+<div class="jogos">
+
+<div class="jogo">
+
+<h3>
+Próximo Jogo
+</h3>
+
+<p>
+${dados.proximoJogo.data}
+</p>
+
+<p>
+${dados.proximoJogo.hora}
+</p>
+
+<br>
+
+<b>
+${dados.proximoJogo.casa}
+</b>
+
+<br>
+vs
+<br>
+
+<b>
+${dados.proximoJogo.fora}
+</b>
+
+</div>
+
+<div class="jogo">
+
+<h3>
+Jogo Seguinte
+</h3>
+
+<p>
+${dados.jogoSeguinte.data}
+</p>
+
+<p>
+${dados.jogoSeguinte.hora}
+</p>
+
+<br>
+
+<b>
+${dados.jogoSeguinte.casa}
+</b>
+
+<br>
+vs
+<br>
+
+<b>
+${dados.jogoSeguinte.fora}
+</b>
+
+</div>
+
+</div>
+
+<h3>
+Últimos Resultados
+</h3>
+
+<table>
+
+<tr>
+<th>Data</th>
+<th>Casa</th>
+<th>Res</th>
+<th>Fora</th>
+</tr>
+
+${dados.ultimosResultados
+.map(j=>`
+
+<tr>
+<td>${j.data}</td>
+<td>${j.casa}</td>
+<td>${j.resultado}</td>
+<td>${j.fora}</td>
+</tr>
+
+`).join("")}
+
+</table>
+
+<h3>
+Top 5
+</h3>
+
+<table class="top5">
+
+<tr>
+<th>Pos</th>
+<th>Equipa</th>
+<th>Pts</th>
+</tr>
+
+${dados.top5
+.map(
+t => `
+
+<tr class="${
+t.equipa === dados.equipa
+?
+'sintrense'
+:
+''
+}">
+
+<td>${t.posicao}</td>
+<td>${t.equipa}</td>
+<td>${t.pontos}</td>
+
+</tr>
+
+`
+).join("")}
+
+</table>
+
+<div class="links">
+
+<a
+target="_blank"
+href="${link}"
+>
+⚽ Jogos ZeroZero
+</a>
+
+<a
+target="_blank"
+href="${
+link.replace(
+'/jogos?grp=1',
+''
+)
+}"
+>
+🏆 Equipa
+</a>
+
+</div>
+
+</div>
+
+`;
+
+}
+
+carregarDados();
+
+</script>
+
+</body>
+
+</html>
