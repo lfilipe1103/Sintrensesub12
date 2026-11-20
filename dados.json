@@ -1,5 +1,5 @@
 {
-  "ultimaAtualizacao": "16/11/2026 14:42",
+  "ultimaAtualizacao": "20/11/2026 12:41",
   "sintrenseA": {
     "posicao": "4",
     "equipa": "Sintrense",
@@ -11,12 +11,38 @@
     "golosMarcados": "33",
     "golosSofridos": "14",
     "diferenca": "+19",
-    "ultimoResultado": {
-      "data": "14/11",
-      "casa": "Sintrense",
-      "resultado": "1-5",
-      "fora": "Malveira da Serra C"
-    },
+    "ultimosResultados": [
+      {
+        "data": "2026-11-14",
+        "casa": "Sintrense",
+        "resultado": "1-5",
+        "fora": "Malveira da Serra"
+      },
+      {
+        "data": "2026-11-07",
+        "casa": "Sintrense",
+        "resultado": "13-1",
+        "fora": "CD Belas"
+      },
+      {
+        "data": "2026-10-31",
+        "casa": "Rio de Mouro",
+        "resultado": "1-5",
+        "fora": "Sintrense"
+      },
+      {
+        "data": "2026-10-24",
+        "casa": "Sintrense",
+        "resultado": "10-0",
+        "fora": "Agualva"
+      },
+      {
+        "data": "2026-10-17",
+        "casa": "Estoril Praia",
+        "resultado": "7-4",
+        "fora": "Sintrense"
+      }
+    ],
     "proximoJogo": {
       "data": "2026-11-21",
       "hora": "12:00",
@@ -50,38 +76,20 @@
         "pontos": "8"
       }
     ],
-    "proximosJogos": [
-      {
-        "data": "21/11",
-        "casa": "União Mercês",
-        "hora": "09:30",
-        "fora": "Rio de Mouro"
-      },
-      {
-        "data": "",
-        "casa": "Mem Martins SC",
-        "hora": "09:30",
-        "fora": "Agualva"
-      },
-      {
-        "data": "",
-        "casa": "Malveira da Serra C",
-        "hora": "10:30",
-        "fora": "CD Belas"
-      },
-      {
-        "data": "",
-        "casa": "Bless Academy",
-        "hora": "10:30",
-        "fora": "Estoril Praia B"
-      },
-      {
-        "data": "",
-        "casa": "EF Belém Estádio Restelo D",
-        "hora": "10:30",
-        "fora": "Assoc. Torre B"
-      }
-    ]
+    "jogoSeguinte": {
+      "data": "2026-11-28",
+      "hora": "09:00",
+      "casa": "Sintrense",
+      "fora": "União Mercês"
+    },
+    "forma": "DVVVD",
+    "ultimos5": {
+      "vitorias": 3,
+      "empates": 0,
+      "derrotas": 2,
+      "golosMarcados": 33,
+      "golosSofridos": 14
+    }
   },
   "sintrenseB": {
     "posicao": "8",
@@ -94,16 +102,36 @@
     "golosMarcados": "18",
     "golosSofridos": "21",
     "diferenca": "-3",
-    "ultimoResultado": {
-      "data": "",
-      "casa": "Algés B",
-      "resultado": "13-1",
-      "fora": "Sintrense B"
-    },
+    "ultimosResultados": [
+      {
+        "data": "2026-11-14",
+        "casa": "Algés",
+        "resultado": "13-1",
+        "fora": "Sintrense B"
+      },
+      {
+        "data": "2026-11-07",
+        "casa": "CD Mafra",
+        "resultado": "0-7",
+        "fora": "Sintrense B"
+      },
+      {
+        "data": "2026-10-31",
+        "casa": "Sintrense B",
+        "resultado": "4-5",
+        "fora": "Sp. Lourel"
+      },
+      {
+        "data": "2026-10-24",
+        "casa": "União Mucifalense",
+        "resultado": "3-6",
+        "fora": "Sintrense B"
+      }
+    ],
     "proximoJogo": {
       "data": "2026-11-21",
       "hora": "12:00",
-      "casa": "Sintrense",
+      "casa": "Sintrense B",
       "fora": "Malveira da Serra B"
     },
     "top5": [
@@ -133,37 +161,19 @@
         "pontos": "9"
       }
     ],
-    "proximosJogos": [
-      {
-        "data": "21/11",
-        "casa": "Agualva B",
-        "hora": "09:30",
-        "fora": "Vila Verde"
-      },
-      {
-        "data": "",
-        "casa": "União Mucifalense",
-        "hora": "09:30",
-        "fora": "1º Dezembro"
-      },
-      {
-        "data": "",
-        "casa": "Sp. Lourel",
-        "hora": "09:30",
-        "fora": "At. Malveira B"
-      },
-      {
-        "data": "",
-        "casa": "Outurela",
-        "hora": "10:30",
-        "fora": "Algés B"
-      },
-      {
-        "data": "",
-        "casa": "CD Mafra B",
-        "hora": "12:00",
-        "fora": "Atlético Cacém"
-      }
-    ]
+    "jogoSeguinte": {
+      "data": "2026-11-28",
+      "hora": "10:00",
+      "casa": "Atlético Cacém",
+      "fora": "Sintrense B"
+    },
+    "forma": "DVDV",
+    "ultimos5": {
+      "vitorias": 2,
+      "empates": 0,
+      "derrotas": 2,
+      "golosMarcados": 18,
+      "golosSofridos": 21
+    }
   }
 }
